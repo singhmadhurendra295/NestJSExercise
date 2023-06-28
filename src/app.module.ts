@@ -7,6 +7,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CompanyModule } from './company/company.module';
 import { TeamsModule } from './teams/teams.module';
+import { UserModule } from './users/users.module';
+import { AuthService } from './auth/auth.service';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -17,19 +21,11 @@ import { TeamsModule } from './teams/teams.module';
     MongooseModule.forRoot(process.env.DB_URL),
     CompanyModule,
     TeamsModule,
-    // RouterModule.register([
-    //   {
-    //     path: 'company',
-    //     module: CompanyModule,
-    //   },
-    //   {
-    //     path: 'teams',
-    //     module: TeamsModule,
-    //   },
-    // ])
+    UserModule,
+    AuthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, AuthController],
+  providers: [AppService, AuthService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

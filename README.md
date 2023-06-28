@@ -33,4 +33,7 @@ url:http://localhost:3000/teams/group-by-company
 method : GET
 
 nest g resource users
+nest g module users
+nest g service users
+nest g controller users
 
