@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "23e65bdc-7b53-46a6-87d6-6f517758a107",
+		"name": "NEST JS CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4624081"
+	},
+	"item": [
+		{
+			"name": "create company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":\"uuid2\",\r\n    \"name\":\"digital\",\r\n    \"ceo\":\"prakash\",\r\n    \"address\":\"india\",\r\n    \"inceptionDate\":\"23/06/2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create team",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":\"uuid1\",\r\n    \"teamLeadName\":\"teamlead3\",\r\n    \"address\":\"india\",\r\n    \"inceptionDate\":\"23/06/2023\",\r\n    \"companyId\":\"64983d2cf3530d8810baeaae\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get company",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiX2lkIjoiNjQ5YzdhY2I1MmYzNmJlNDg4Yjk1YzZiIiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsInBhc3N3b3JkIjoiJDJiJDEwJDYxNWFmNDZOTVYzLkFIMzg2UzJUcnVUVmkxNU9oWVJzVGJXZVZqSXpZQW1lQWhrZlNLQ2ZlIiwiX192IjowfSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTY4Nzk3ODcxNiwiZXhwIjoxNjg3OTc5MzE2fQ.3soooyvcrYO9WGvfpdJMPfw8gIT0UhjFoEnnoZtAKKc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get team groupby company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teams/group-by-company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams",
+						"group-by-company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get company byid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/company/649835bb6dad7924d175e90f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"company",
+						"649835bb6dad7924d175e90f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get company by name search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/company?search=digital",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"company"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "digital"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User/Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"testuser2\",\r\n    \"password\": \"testpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"testuser2\",\r\n    \"password\": \"testpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiX2lkIjoiNjQ5YzdhY2I1MmYzNmJlNDg4Yjk1YzZiIiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsInBhc3N3b3JkIjoiJDJiJDEwJDYxNWFmNDZOTVYzLkFIMzg2UzJUcnVUVmkxNU9oWVJzVGJXZVZqSXpZQW1lQWhrZlNLQ2ZlIiwiX192IjowfSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTY4Nzk3NzkwMiwiZXhwIjoxNjg3OTc3OTYyfQ.qZqAd4487yjMV6aUtKzYEvY-IgfuooXD86YtWiwJTyc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"testuser\",\r\n    \"password\": \"testpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
