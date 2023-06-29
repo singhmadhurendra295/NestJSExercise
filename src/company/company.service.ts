@@ -33,7 +33,7 @@ export class CompanyService {
   }
 
   async update(uuid: string, updateCompanyDto: UpdateCompanyDto): Promise<any> {
-    const company = await this.companyModel.updateOne({ uuid });
+    const company = await this.companyModel.updateOne({ uuid }, updateCompanyDto);
     return company;
   }
 
