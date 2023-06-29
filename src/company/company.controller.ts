@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
   Query,
@@ -11,6 +12,7 @@ import {
 import { CompanyService } from './company.service';
 import { Company } from '../schemas/company.schema';
 import { CreateCompanyDto } from './dto/create-company.dto';
+import { UpdateCompanyDto } from './dto/update-company.dto';
 
 @Controller('company')
 export class CompanyController {
@@ -43,6 +45,16 @@ export class CompanyController {
     search: string,
   ): Promise<Company[]> {
     return this.companyService.searchByName(search);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCompanyDto: UpdateCompanyDto) {
+    return this.companyService.update(id, updateCompanyDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.companyService.remove(id);
   }
 
 }
